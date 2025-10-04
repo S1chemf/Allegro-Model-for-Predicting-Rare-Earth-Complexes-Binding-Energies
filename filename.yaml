@@ -1,0 +1,125 @@
+BesselBasis_trainable: true
+PolynomialCutoff_p: 6
+append: true
+ase_args:
+  format: extxyz
+avg_num_neighbors: auto
+batch_size: 4
+chemical_symbol_to_type:
+  C: 1
+  Ce: 22
+  Cl: 9
+  Dy: 19
+  Er: 16
+  Eu: 21
+  F: 4
+  Gd: 14
+  H: 0
+  Ho: 15
+  La: 6
+  Lu: 10
+  N: 2
+  Nd: 11
+  O: 3
+  P: 8
+  Pm: 12
+  Pr: 23
+  S: 5
+  Sm: 13
+  Tb: 20
+  Tm: 18
+  Y: 7
+  Yb: 17
+dataset: ase
+dataset_file_name: /global/scratch/users/ankur/allegro/rep_datasets/training_dft_extxyz_be.xyz
+dataset_seed: 111111
+default_dtype: float32
+early_stopping_lower_bounds:
+  LR: 1.0e-05
+early_stopping_patiences:
+  validation_loss: 100
+edge_eng_mlp_initialization: uniform
+edge_eng_mlp_latent_dimensions:
+- 16
+edge_eng_mlp_nonlinearity: null
+ema_decay: 0.99
+ema_use_num_updates: true
+embed_initial_edge: true
+env_embed_mlp_initialization: uniform
+env_embed_mlp_latent_dimensions: []
+env_embed_mlp_nonlinearity: null
+env_embed_multiplicity: 2
+key_mapping:
+  energy: total_energy
+l_max: 2
+latent_mlp_initialization: uniform
+latent_mlp_latent_dimensions:
+- 8
+- 16
+- 32
+- 64
+latent_mlp_nonlinearity: silu
+latent_resnet: true
+learning_rate: 0.01
+log_batch_freq: 10
+loss_coeffs:
+  forces: 0.0
+  total_energy:
+  - 1.0
+  - L1Loss
+lr_scheduler_factor: 0.75
+lr_scheduler_monitor: training_e_mae
+lr_scheduler_name: ReduceLROnPlateau
+lr_scheduler_patience: 20
+lr_scheduler_threshold: 2.5e-05
+lr_scheduler_threshold_mode: abs
+max_epochs: 1500
+metrics_components:
+- - total_energy
+  - mae
+- - total_energy
+  - rmse
+- - forces
+  - rmse
+- - forces
+  - mae
+metrics_key: validation_loss_e
+model_builders:
+- allegro.model.Allegro
+- PerSpeciesRescale
+- ForceOutput
+- RescaleEnergyEtc
+n_train: 4300
+n_val: 538
+num_layers: 2
+optimizer_name: Adam
+optimizer_params:
+  amsgrad: false
+  betas: !!python/tuple
+  - 0.9
+  - 0.999
+  eps: 1.0e-08
+  weight_decay: 0.0
+parity: o3_full
+per_species_rescale_scales: dataset_per_atom_total_energy_std
+per_species_rescale_shifts: dataset_per_species_total_energy_mean
+r_max: 6.0
+root: ./model_rep_dft_be_nf_rm_6_lm_2_nl_2_pp_6_eem_2_tbl_8_16_32_64_ll_8_16_32_64_ee_16_training_results
+run_name: model_rep_dft_be_nf_rm_6_lm_2_nl_2_pp_6_eem_2_tbl_8_16_32_64_ll_8_16_32_64_ee_16
+seed: 111111
+shuffle: true
+train_val_split: random
+two_body_latent_mlp_initialization: uniform
+two_body_latent_mlp_latent_dimensions:
+- 8
+- 16
+- 32
+- 64
+two_body_latent_mlp_nonlinearity: silu
+use_ema: true
+validation_batch_size: 20
+validation_dataset: ase
+validation_dataset_file_name: /global/scratch/users/ankur/allegro/rep_datasets/validation_dft_extxyz_be.xyz
+verbose: info
+wandb: true
+wandb_project: rep_allegro_dft_be_nf3
