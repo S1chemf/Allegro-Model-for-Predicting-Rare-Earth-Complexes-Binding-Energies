@@ -7,5 +7,5 @@
 
 ## Allegro evaluation
 
-1. Test the trained model on your test set by running the `nequip-evaluate command`. A sample .yaml file is provided for this step (check_models.yaml).
+1. Test the trained model on your test set by running the `nequip-evaluate` command. A sample .yaml file is provided for this step (check_models.yaml).
 2. Plot the parity plots comparing binding energies predicted by the Allegro model against ground truth values for the test set.
