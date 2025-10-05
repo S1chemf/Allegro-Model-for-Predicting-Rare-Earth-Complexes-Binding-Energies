@@ -50,12 +50,12 @@ Edit the following parameters before training:
 | `wandb_project`                | Project name for Weights & Biases logging |
 
 ### Key hyperparameters to modify:
-- edge_eng_mlp_latent_dimensions
-- env_embed_multiplicity
-- l_max
-- latent_mlp_latent_dimensions
-- num_layers
-- two_body_latent_mlp_latent_dimensions
+- edge_eng_mlp_latent_dimensions: [16]
+- env_embed_multiplicity: 2 / 4
+- l_max: 2
+- latent_mlp_latent_dimensions: [8, 16, 32, 64]
+- num_layers: 2
+- two_body_latent_mlp_latent_dimensions: [8, 16, 32, 64]
 
 ---
 
