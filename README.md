@@ -13,7 +13,7 @@ Follow the installation guide in the official Allegro repository: https://github
 **Tip:** Run on **GPU** to improve performance
 
 ### 2. Provided Files
-- **Training config:** `filename.yaml`  
+- **Training config:** `train.yaml`  
 - **Evaluation config:** `check_models.yaml`
 - **Metrics config:** `metric_config.yaml`
 
@@ -33,9 +33,9 @@ These YAML files contain parameters needed for model training and evaluation.
 
 Once Allegro is installed, train your model using: 
 
-`nequip-train filename.yaml`
+`nequip-train train.yaml`
 
-### YAML Configuration (filename.yaml) 
+### YAML Configuration (train.yaml) 
 
 Edit the following parameters before training:
 
@@ -75,6 +75,6 @@ Set:
 
 ## Citation
 
-If you use Allegro or this workflow in your research, please cite:
+If you use this workflow in your research, please cite:
 
-**Albert Musaelian, Simon Batzner, Anders Johansson, Lixin Sun, Cameron J. Owen, Mordechai Kornbluth, and Boris Kozinsky.** *"Learning local equivariant representations for large-scale atomistic dynamics." Nature Communications 14, no. 1 (2023): 579*
+[**A. Gupta, C. V. Hetherington and W.A. de Jong**, *Toward Accelerating Rare-Earth Metal Extraction Using Equivariant Neural Networks* 2025](https://chemrxiv.org/engage/chemrxiv/article-details/684279d91a8f9bdab53e29b9)
