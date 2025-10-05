@@ -24,7 +24,7 @@ These YAML files contain parameters needed for model training and evaluation.
 ## Datasets
 
 1. Datasets must be in **extended XYZ (.xyz)** format.
-2. The dataset used in this study is accessible via the link in the Data Availability Statement
+2. The dataset used in this study is accessible via the link in the Data Availability Statement (full data will be available when paper is published)
 3. Update dataset paths in your YAML configuration files accordingly.
 
 ---
